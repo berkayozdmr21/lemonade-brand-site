@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Limonca — Bir yudumda yaz | El Sıkımı Limonata</title>
+  <meta name="description" content="Limonca: taze sıkılmış limon, az şeker ve bol buzla hazırlanan limonata. Klasik, nane, çilek ve zencefilli çeşitleri keşfedin.">
+  <meta name="theme-color" content="#FFE03D">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ===== SVG SPRITE: tüm görseller kodla üretildi ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="g-lemon" cx="38%" cy="32%" r="80%">
+      <stop offset="0" stop-color="#FFF59A"/><stop offset=".55" stop-color="#FFE03D"/><stop offset="1" stop-color="#F2B705"/>
+    </radialGradient>
+    <radialGradient id="g-berry" cx="35%" cy="30%" r="80%">
+      <stop offset="0" stop-color="#FF8FA3"/><stop offset=".6" stop-color="#FF4D6D"/><stop offset="1" stop-color="#C9184A"/>
+    </radialGradient>
+  </defs>
+
+  <symbol id="lemon" viewBox="0 0 100 100">
+    <path d="M6 50C6 46 10 44 13 42 18 24 36 12 56 14 78 16 90 34 90 44 94 46 96 49 94 52 92 55 90 56 88 57 82 76 66 88 46 88 26 86 14 72 12 58 8 56 6 53 6 50Z" fill="url(#g-lemon)"/>
+    <path d="M24 34C30 24 42 20 52 21" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="4" stroke-linecap="round"/>
+    <path d="M70 76C60 82 48 83 38 80" fill="none" stroke="#D99A00" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="slice" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="48" fill="#F2B705"/>
+    <circle cx="50" cy="50" r="43" fill="#FFF8D6"/>
+    <circle cx="50" cy="50" r="20" fill="none" stroke="#FFE86B" stroke-width="38" stroke-dasharray="14.4 1.26" transform="rotate(-90 50 50)"/>
+    <circle cx="50" cy="50" r="3.5" fill="#FFF8D6"/>
+    <path d="M50 50 50 10M50 50 78 22M50 50 90 50M50 50 78 78M50 50 50 90M50 50 22 78M50 50 10 50M50 50 22 22" stroke="#FFF8D6" stroke-width="2.2" opacity=".9"/>
+    <circle cx="50" cy="50" r="48" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+  </symbol>
+
+  <symbol id="leaf" viewBox="0 0 100 60">
+    <path d="M4 32C24 2 64 0 96 10 90 42 50 62 4 32Z" fill="#6DB33F"/>
+    <path d="M4 32C34 28 66 22 96 10" stroke="#3F7D20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="mint" viewBox="0 0 100 100">
+    <path d="M50 96C50 70 52 44 50 14" stroke="#3F7D20" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M50 20C34 10 30 28 50 36 70 28 66 10 50 20Z" fill="#4CC38A"/>
+    <path d="M50 48C26 36 18 60 50 66 82 60 74 36 50 48Z" fill="#7ED9B0"/>
+    <path d="M50 70C30 62 26 82 50 88 74 82 70 62 50 70Z" fill="#4CC38A"/>
+    <path d="M50 24V34M50 52V64M50 74V85" stroke="#2E8B57" stroke-width="1.6" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="strawberry" viewBox="0 0 100 100">
+    <path d="M50 92C26 80 12 58 14 40 16 28 30 24 50 30 70 24 84 28 86 40 88 58 74 80 50 92Z" fill="url(#g-berry)"/>
+    <g fill="#FFE9A8"><ellipse cx="34" cy="46" rx="2" ry="3"/><ellipse cx="50" cy="44" rx="2" ry="3"/><ellipse cx="66" cy="46" rx="2" ry="3"/><ellipse cx="42" cy="60" rx="2" ry="3"/><ellipse cx="58" cy="60" rx="2" ry="3"/><ellipse cx="50" cy="74" rx="2" ry="3"/></g>
+    <path d="M50 30 36 18 46 24 50 10 54 24 64 18Z" fill="#4CAF50"/>
+  </symbol>
+
+  <symbol id="drop" viewBox="0 0 24 24"><path d="M12 2C12 2 5 10 5 15a7 7 0 0014 0c0-5-7-13-7-13z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- Sayfa açılış perdesi -->
+<div class="curtain" aria-hidden="true">
+  <svg viewBox="0 0 120 120" class="curtain-lemon"><use href="#lemon"/></svg>
+  <svg class="curtain-wave" viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0 0H1440V60C1200 120 960 0 720 60S240 120 0 60Z" fill="#FFE03D"/></svg>
+</div>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Limonca ana sayfa">
+    <svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true"><use href="#lemon"/></svg>
+    <span>Limonca</span>
+  </a>
+  <button class="burger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  <nav id="menu" class="menu" aria-label="Ana menü">
+    <a href="#hikaye">Hikâye</a>
+    <a href="#cesitler">Çeşitler</a>
+    <a href="#faydalar">İçindekiler</a>
+    <a href="#yapilis">Nasıl yapılır</a>
+    <a href="#yorumlar">Yorumlar</a>
+    <a href="#iletisim" class="btn btn-sm">İletişim</a>
+  </nav>
+</header>
+
+<main id="icerik">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <div class="bubbles" data-bubbles></div>
+    <svg class="float f1" viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <svg class="float f2" viewBox="0 0 100 100"><use href="#slice"/></svg>
+    <svg class="float f3" viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <svg class="float f4" viewBox="0 0 100 60"><use href="#leaf"/></svg>
+    <svg class="float f5" viewBox="0 0 100 100"><use href="#mint"/></svg>
+    <svg class="float f6" viewBox="0 0 100 100"><use href="#slice"/></svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow" data-hero="in">El sıkımı · Az şekerli · Bol buzlu</p>
+      <h1 aria-label="Bir yudumda yaz.">
+        <span class="split" aria-hidden="true">Bir yudumda</span>
+        <span class="split accent" aria-hidden="true">yaz.</span>
+      </h1>
+      <p class="lead" data-hero="in">Güneşte olgunlaşan limonlar, taze nane ve bolca buz. Sıkılır sıkılmaz bardağa, bardaktan doğruca yüzünüze gülümseme olarak.</p>
+      <div class="hero-cta" data-hero="in">
+        <a href="#cesitler" class="btn">Çeşitleri keşfet</a>
+        <a href="#yapilis" class="btn btn-ghost">Nasıl yapılır?</a>
+      </div>
+    </div>
+    <div class="hero-glass" data-glass="hero" data-tilt-glass></div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true"><span>kaydır</span><i></i></div>
+  <svg class="wave-div" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C240 0 480 120 720 60S1200 0 1440 60V120H0Z" fill="#B8D83B"/></svg>
+</section>
+
+<!-- ===== YATAY ŞERİT ===== -->
+<section class="marquee" aria-label="Limonca değerleri">
+  <div class="mq-row"><div class="mq-track" data-dir="1">
+    <span>Taze sıkılmış</span><svg viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <span>Az şekerli</span><svg viewBox="0 0 100 100"><use href="#slice"/></svg>
+    <span>Bol buzlu</span><svg viewBox="0 0 100 100"><use href="#mint"/></svg>
+    <span>Katkısız</span><svg viewBox="0 0 100 100"><use href="#strawberry"/></svg>
+  </div></div>
+  <div class="mq-row alt"><div class="mq-track" data-dir="-1">
+    <span>Yaz gibi ferah</span><svg viewBox="0 0 100 100"><use href="#slice"/></svg>
+    <span>Gün boyu serin</span><svg viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <span>Her yudumda limon</span><svg viewBox="0 0 100 100"><use href="#mint"/></svg>
+    <span>Gülümseten tat</span><svg viewBox="0 0 100 100"><use href="#strawberry"/></svg>
+  </div></div>
+</section>
+
+<!-- ===== HİKÂYE ===== -->
+<section class="story" id="hikaye">
+  <div class="story-art" aria-hidden="true">
+    <svg class="big-slice" viewBox="0 0 100 100"><use href="#slice"/></svg>
+    <svg class="story-lemon l1" viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <svg class="story-lemon l2" viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <svg class="story-leaf" viewBox="0 0 100 60"><use href="#leaf"/></svg>
+  </div>
+  <div class="wrap story-grid">
+    <div>
+      <p class="eyebrow dark" data-reveal>Hikâyemiz</p>
+      <h2 class="reveal-lines">
+        <span class="line"><span>Bir bahçe,</span></span>
+        <span class="line"><span>bir bardak,</span></span>
+        <span class="line"><span>bir sır: <em>limon.</em></span></span>
+      </h2>
+      <p class="body" data-reveal>Her şey büyükannenin bahçesindeki limon ağacıyla başladı. Yaz öğleden sonralarında, ağacın gölgesinde sıkılan o ilk bardak, bugün Limonca'nın tarifi oldu: yalnızca limon, su, biraz şeker ve buz.</p>
+      <p class="body" data-reveal>Hiçbir şeyi karmaşıklaştırmıyoruz. Çünkü iyi limonata, sadeliğini bozmayan limonatadır.</p>
+    </div>
+    <ul class="stats">
+      <li data-reveal><b data-count="12" data-suffix="+">0</b><span>Yıllık tarif</span></li>
+      <li data-reveal><b data-count="3">0</b><span>Malzeme, hepsi bu</span></li>
+      <li data-reveal><b data-count="100" data-suffix="%">0</b><span>El sıkımı</span></li>
+      <li data-reveal><b data-count="4">0</b><span>Çeşit, her mevsim</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== ÇEŞİTLER ===== -->
+<section class="products" id="cesitler">
+  <svg class="wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C240 120 480 0 720 60S1200 120 1440 60V0H0Z" fill="#FFF9E3"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow dark" data-reveal>Çeşitlerimiz</p>
+      <h2 class="split-h" data-split>Hangisi senin yazın?</h2>
+    </div>
+    <div class="cards">
+      <article class="card tilt" style="--c1:#FFE03D;--c2:#FFF59A;--glow:#FFD60A" data-garnish="slice">
+        <div class="card-art" aria-hidden="true"></div>
+        <h3>Klasik</h3>
+        <p>Taze limon, az şeker, bol buz. Değişmeyen favori; ilk yudumda yazı hatırlatır.</p>
+        <span class="tag">En çok tercih edilen</span>
+      </article>
+      <article class="card tilt" style="--c1:#9BE3BE;--c2:#D3F6E3;--glow:#4CC38A" data-garnish="mint">
+        <div class="card-art" aria-hidden="true"></div>
+        <h3>Naneli</h3>
+        <p>Elle ezilmiş taze nane yaprakları limonla buluşuyor. Serinliğin en ferah hali.</p>
+        <span class="tag">Ferah</span>
+      </article>
+      <article class="card tilt" style="--c1:#FF8FA3;--c2:#FFC9D3;--glow:#FF4D6D" data-garnish="strawberry">
+        <div class="card-art" aria-hidden="true"></div>
+        <h3>Çilekli</h3>
+        <p>Olgun çilek ezmesi ve limonun ekşisi; pembe renginden tatlı, tadından hafif.</p>
+        <span class="tag">Tatlı</span>
+      </article>
+      <article class="card tilt" style="--c1:#F5C26B;--c2:#FFE6B0;--glow:#F29E1F" data-garnish="lemon">
+        <div class="card-art" aria-hidden="true"></div>
+        <h3>Zencefilli</h3>
+        <p>Limonun yanına hafif baharat. Serin içilen ama içini ısıtan cesur bir seçenek.</p>
+        <span class="tag">Cesur</span>
+      </article>
+    </div>
+  </div>
+  <svg class="wave-bottom" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C240 0 480 120 720 60S1200 0 1440 60V120H0Z" fill="#1C3A14"/></svg>
+</section>
+
+<!-- ===== İÇİNDEKİLER / FAYDALAR ===== -->
+<section class="benefits" id="faydalar">
+  <div class="spin-lemons" aria-hidden="true">
+    <svg class="sl a" viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <svg class="sl b" viewBox="0 0 100 100"><use href="#slice"/></svg>
+    <svg class="sl c" viewBox="0 0 100 100"><use href="#lemon"/></svg>
+    <svg class="sl d" viewBox="0 0 100 60"><use href="#leaf"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="sec-head light">
+      <p class="eyebrow" data-reveal>İçindekiler</p>
+      <h2 class="split-h" data-split>Az şey. Doğru şeyler.</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit" data-reveal="scale">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" pathLength="1"/></svg>
+        <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><use href="#lemon"/></svg>
+        <h3>Taze limon</h3>
+        <p>Her gün sıkılan gerçek limon suyu; konsantre yok, aroma yok.</p>
+      </div>
+      <div class="benefit" data-reveal="scale">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" pathLength="1"/></svg>
+        <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><use href="#drop"/></svg>
+        <h3>Az şeker</h3>
+        <p>Limonun karakterini bastırmayacak kadar; tadı dengeleyecek kadar.</p>
+      </div>
+      <div class="benefit" data-reveal="scale">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" pathLength="1"/></svg>
+        <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><use href="#mint"/></svg>
+        <h3>Taze otlar</h3>
+        <p>Nane ve doğal meyveler; her zaman günün en taze haliyle.</p>
+      </div>
+      <div class="benefit" data-reveal="scale">
+        <svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="54" pathLength="1"/></svg>
+        <svg class="ico" viewBox="0 0 100 100" aria-hidden="true"><use href="#slice"/></svg>
+        <h3>Katkısız</h3>
+        <p>Koruyucu, yapay renk ve yapay tatlandırıcı eklemiyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NASIL YAPILIR ===== -->
+<section class="steps" id="yapilis">
+  <div class="wrap steps-grid">
+    <div class="steps-glass-col">
+      <div class="steps-glass" data-glass="steps"></div>
+    </div>
+    <div class="steps-list">
+      <p class="eyebrow dark" data-reveal>Nasıl yapılır?</p>
+      <h2 class="split-h" data-split>Dört adımda yaz.</h2>
+      <ol>
+        <li class="step" data-step="1">
+          <span class="num">01</span>
+          <div><h3>Limonları sık</h3><p>Olgun, kokusu yoğun limonları seçin. Bir bardak suyu için yaklaşık dört limon yeter; çekirdeklerini süzün.</p></div>
+        </li>
+        <li class="step" data-step="2">
+          <span class="num">02</span>
+          <div><h3>Tatlandırın</h3><p>Limon suyuna şekeri ekleyip tamamen çözülene kadar karıştırın. Dilerseniz önce şeker şurubu hazırlayın.</p></div>
+        </li>
+        <li class="step" data-step="3">
+          <span class="num">03</span>
+          <div><h3>Soğuk su ve buz</h3><p>Soğuk suyla açın, bardağı buz küpleriyle doldurun. Karışım hazır olduğunda buzun üzerine dökün.</p></div>
+        </li>
+        <li class="step" data-step="4">
+          <span class="num">04</span>
+          <div><h3>Süsleyin, servis edin</h3><p>Kenarına bir limon dilimi, üstüne birkaç nane yaprağı. Pipetinizi takın; yaz başlasın.</p></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ===== YORUMLAR ===== -->
+<section class="reviews" id="yorumlar">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow dark" data-reveal>Yorumlar</p>
+      <h2 class="split-h" data-split>Bardaktan taşan memnuniyet.</h2>
+    </div>
+  </div>
+  <div class="rv-viewport">
+    <div class="rv-track">
+      <figure class="rv">
+        <div class="stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <blockquote>“Çocukluğumdaki limonatanın tadını yıllar sonra bulmuş gibi oldum. Fazla tatlı değil, tam kıvamında.”</blockquote>
+        <figcaption><span class="av" style="--a:#FFE03D">A</span>Ayşe K. <small>örnek yorum</small></figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <blockquote>“Naneli çeşit sıcak bir günde kurtarıcı oldu. Gerçekten taze nane kokusu geliyor.”</blockquote>
+        <figcaption><span class="av" style="--a:#9BE3BE">M</span>Mert D. <small>örnek yorum</small></figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <blockquote>“Çilekli limonata evde yapılsa bu kadar güzel olmaz. Rengi bile insanı mutlu ediyor.”</blockquote>
+        <figcaption><span class="av" style="--a:#FF8FA3">Z</span>Zeynep T. <small>örnek yorum</small></figcaption>
+      </figure>
+      <figure class="rv">
+        <div class="stars" aria-label="5 üzerinden 5 yıldız">★★★★★</div>
+        <blockquote>“Zencefilli olanı denedim ve şaşırdım. Serin ama içinizi ısıtıyor. Kesin tavsiye.”</blockquote>
+        <figcaption><span class="av" style="--a:#F5C26B">C</span>Can Y. <small>örnek yorum</small></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== İLETİŞİM ===== -->
+<section class="contact" id="iletisim">
+  <svg class="wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C240 120 480 0 720 60S1200 120 1440 60V0H0Z" fill="#E4F2A8"/></svg>
+  <svg class="contact-slice" viewBox="0 0 100 100" aria-hidden="true"><use href="#slice"/></svg>
+  <div class="wrap contact-grid">
+    <div class="contact-text">
+      <p class="eyebrow dark" data-reveal>İletişim</p>
+      <h2 class="split-h" data-split>Bize bir mesaj bırakın.</h2>
+      <p class="body" data-reveal>Sipariş, iş birliği ya da sadece merhaba demek için; formu doldurun, en kısa sürede size dönelim.</p>
+    </div>
+
+    <div class="form-card" data-reveal>
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <input type="text" id="ad" name="ad" placeholder=" " autocomplete="name" minlength="2" maxlength="100" required>
+          <label for="ad">Adınız</label>
+          <small class="err" id="err-ad" role="alert"></small>
+        </div>
+        <div class="field">
+          <input type="email" id="eposta" name="eposta" placeholder=" " autocomplete="email" required>
+          <label for="eposta">E-posta</label>
+          <small class="err" id="err-eposta" role="alert"></small>
+        </div>
+        <div class="field">
+          <input type="tel" id="telefon" name="telefon" placeholder=" " autocomplete="tel" maxlength="30">
+          <label for="telefon">Telefon <em>(isteğe bağlı)</em></label>
+          <small class="err" id="err-telefon" role="alert"></small>
+        </div>
+        <div class="field">
+          <textarea id="mesaj" name="mesaj" rows="5" placeholder=" " minlength="5" maxlength="2000" required></textarea>
+          <label for="mesaj">Mesajınız</label>
+          <small class="err" id="err-mesaj" role="alert"></small>
+        </div>
+
+        <!-- Honeypot: insanlar görmez, boş kalmalı -->
+        <div class="hp" aria-hidden="true">
+          <label for="website">Web siteniz</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" value="">
+        </div>
+
+        <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+
+        <button type="submit" class="btn btn-submit" id="submitBtn">
+          <span class="lbl-idle">Gönder</span>
+          <span class="lbl-load"><i class="spinner"></i>Gönderiliyor…</span>
+          <span class="lbl-ok">Gönderildi</span>
+        </button>
+      </form>
+
+      <div class="success" id="success" hidden>
+        <svg viewBox="0 0 100 100" class="check" aria-hidden="true">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#3F7D20" stroke-width="6" pathLength="1"/>
+          <path d="M30 52 45 67 72 36" fill="none" stroke="#3F7D20" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/>
+        </svg>
+        <h3>Teşekkürler!</h3>
+        <p>Mesajınız bize ulaştı. En kısa sürede size dönüş yapacağız.</p>
+        <button type="button" class="btn btn-ghost btn-sm" id="againBtn">Yeni mesaj yaz</button>
+        <div class="burst" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <svg class="wave-top" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C240 0 480 120 720 60S1200 0 1440 60V0H0Z" fill="#FFE03D"/></svg>
+  <div class="wrap">
+    <p class="foot-big" aria-hidden="true" data-split>Limonca</p>
+    <div class="foot-row">
+      <div class="brand light"><svg viewBox="0 0 100 100" width="34" height="34" aria-hidden="true"><use href="#lemon"/></svg><span>Limonca</span></div>
+      <nav aria-label="Alt menü">
+        <a href="#hikaye">Hikâye</a><a href="#cesitler">Çeşitler</a><a href="#yapilis">Nasıl yapılır</a><a href="#iletisim">İletişim</a>
+      </nav>
+      <a href="#top" class="to-top" aria-label="Yukarı çık">↑</a>
+    </div>
+    <p class="copy">© <span id="yil">2026</span> Limonca. Taze sıkılmış bir yaz için yapıldı.</p>
+  </div>
+</footer>
+
+<template id="tpl-card-glass">
+  <svg viewBox="0 0 160 210" class="cg">
+    <ellipse cx="80" cy="200" rx="52" ry="7" fill="rgba(0,0,0,.1)"/>
+    <path d="M26 40H134L120 186Q119 196 109 196H51Q41 196 40 186Z" fill="rgba(255,255,255,.45)"/>
+    <clipPath id="cgc"><path d="M26 40H134L120 186Q119 196 109 196H51Q41 196 40 186Z"/></clipPath>
+    <g clip-path="url(#cgc)">
+      <rect x="0" y="66" width="160" height="150" fill="var(--c1)"/>
+      <rect x="0" y="66" width="160" height="22" fill="var(--c2)" opacity=".7"/>
+      <g class="cg-wave"><path d="M-80 66q20-9 40 0t40 0 40 0 40 0 40 0 40 0v14h-240z" fill="var(--c2)"/></g>
+      <rect x="52" y="76" width="28" height="28" rx="7" fill="#fff" opacity=".4" transform="rotate(-12 66 90)"/>
+      <rect x="86" y="100" width="24" height="24" rx="6" fill="#fff" opacity=".35" transform="rotate(14 98 112)"/>
+    </g>
+    <path d="M26 40H134L120 186Q119 196 109 196H51Q41 196 40 186Z" fill="none" stroke="#fff" stroke-width="3" opacity=".9"/>
+    <path d="M40 54 50 176" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+    <rect x="104" y="0" width="9" height="150" rx="4.5" fill="#FF5A5F" transform="rotate(12 108 75)"/>
+    <use class="cg-garnish" href="#slice" x="98" y="14" width="58" height="58"/>
+  </svg>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

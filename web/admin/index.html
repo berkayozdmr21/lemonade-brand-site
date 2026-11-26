@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Yönetim Paneli · Limonca</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe geç</a>
+
+<!-- GİRİŞ -->
+<section id="girisEkrani" class="giris" hidden>
+  <form id="girisForm" class="giris-kart" novalidate>
+    <div class="logo" aria-hidden="true">🍋</div>
+    <h1>Limonca Yönetim</h1>
+    <p class="alt">Mesajları görmek için giriş yapın.</p>
+    <label for="kullanici">Kullanıcı adı</label>
+    <input id="kullanici" name="kullanici" type="text" autocomplete="username" required>
+    <label for="sifre">Şifre</label>
+    <input id="sifre" name="sifre" type="password" autocomplete="current-password" required>
+    <p id="girisHata" class="hata-yazi" role="alert" aria-live="assertive" hidden></p>
+    <button class="btn birincil" type="submit" id="girisBtn">Giriş yap</button>
+  </form>
+</section>
+
+<!-- PANEL -->
+<div id="panel" hidden>
+  <header class="ust">
+    <div class="marka"><span aria-hidden="true">🍋</span> Limonca <small>Yönetim</small></div>
+    <div class="ust-sag">
+      <span id="sonYenileme" class="son" aria-live="polite"></span>
+      <button class="btn ikincil" id="yenileBtn" type="button">Yenile</button>
+      <button class="btn ikincil" id="cikisBtn" type="button">Çıkış yap</button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="kartlar" aria-label="İstatistikler">
+      <div class="stat"><span class="stat-s" data-stat="toplam">0</span><span class="stat-e">Toplam</span></div>
+      <div class="stat yeni"><span class="stat-s" data-stat="yeni">0</span><span class="stat-e">Yeni</span></div>
+      <div class="stat"><span class="stat-s" data-stat="okundu">0</span><span class="stat-e">Okundu</span></div>
+      <div class="stat"><span class="stat-s" data-stat="arsiv">0</span><span class="stat-e">Arşiv</span></div>
+    </section>
+
+    <section class="araclar" aria-label="Filtre ve arama">
+      <div class="sekmeler" role="group" aria-label="Duruma göre filtre">
+        <button type="button" class="sekme aktif" data-durum="" aria-pressed="true">Tümü</button>
+        <button type="button" class="sekme" data-durum="yeni" aria-pressed="false">Yeni</button>
+        <button type="button" class="sekme" data-durum="okundu" aria-pressed="false">Okundu</button>
+        <button type="button" class="sekme" data-durum="arsiv" aria-pressed="false">Arşiv</button>
+      </div>
+      <label class="ara" for="arama"><span class="sr">Ara</span>
+        <input id="arama" type="search" placeholder="Ad, e-posta veya mesajda ara…" autocomplete="off">
+      </label>
+      <label class="sirala" for="sirala"><span class="sr">Sırala</span>
+        <select id="sirala">
+          <option value="yeni">Önce en yeni</option>
+          <option value="eski">Önce en eski</option>
+        </select>
+      </label>
+    </section>
+
+    <div class="icerik">
+      <section class="liste-kap" aria-label="Mesaj listesi" aria-busy="false">
+        <div id="durumKutu" class="durum-kutu" role="status" aria-live="polite" hidden></div>
+        <div class="tablo-kap">
+          <table id="tablo">
+            <thead><tr><th scope="col">Gönderen</th><th scope="col">Mesaj</th><th scope="col">Durum</th><th scope="col">Tarih</th></tr></thead>
+            <tbody id="govde"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside id="detay" class="detay" aria-label="Mesaj detayı" hidden>
+        <button type="button" class="kapat" id="detayKapat" aria-label="Detayı kapat">×</button>
+        <h2 id="dAd" tabindex="-1"></h2>
+        <dl>
+          <dt>E-posta</dt><dd id="dEposta"></dd>
+          <dt>Telefon</dt><dd id="dTelefon"></dd>
+          <dt>Tarih</dt><dd id="dTarih"></dd>
+          <dt>Durum</dt><dd id="dDurum"></dd>
+        </dl>
+        <h3>Mesaj</h3>
+        <p id="dMesaj" class="mesaj-metin"></p>
+        <p id="dHata" class="hata-yazi" role="alert" hidden></p>
+        <div class="eylemler">
+          <a id="dYanit" class="btn birincil" href="#">E-posta ile yanıtla</a>
+          <button type="button" class="btn ikincil" id="dOkundu">Okundu yap</button>
+          <button type="button" class="btn ikincil" id="dArsiv">Arşivle</button>
+          <button type="button" class="btn tehlike" id="dSil">Sil</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<!-- Silme onayı -->
+<dialog id="onay" aria-labelledby="onayBaslik">
+  <form method="dialog">
+    <h2 id="onayBaslik">Mesaj silinsin mi?</h2>
+    <p id="onayMetin">Bu işlem geri alınamaz.</p>
+    <div class="eylemler">
+      <button value="iptal" class="btn ikincil" id="onayIptal">Vazgeç</button>
+      <button value="tamam" class="btn tehlike" id="onayTamam">Evet, sil</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="admin.js"></script>
+</body>
+</html>
